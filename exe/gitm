@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-comment = ARGV[0]
+comment = ARGV.join ' '
 
 `git commit -m "#{comment}"`
