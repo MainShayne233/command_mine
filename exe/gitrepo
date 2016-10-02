@@ -2,10 +2,13 @@
 
 name = ARGV[0].gsub("\n", '')
 
-puts `curl -u 'MainShayne233' https://api.github.com/user/repos -d '{"name":"#{name}"}'`
-
-puts "git@github.com:MainShayne233/#{name}.gitname = ARGV[0].gsub("\n", '')
+add_remote_origin = ARGV[1] == '-remote_origin'
 
 puts `curl -u 'MainShayne233' https://api.github.com/user/repos -d '{"name":"#{name}"}'`
 
-puts "git@github.com:MainShayne233/#{name}.git
+giturl = "git@github.com:MainShayne233/#{name}.git\n"
+
+if add_remote_origin
+  `git remote add origin #{giturl}`
+  puts "made remote origin"
+end
