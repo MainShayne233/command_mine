@@ -2,4 +2,4 @@
 
 comment = ARGV.join ' '
 
-`git commit -m "#{comment}"`
+puts `git commit -m "#{comment}"`
