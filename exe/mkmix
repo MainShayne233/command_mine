@@ -22,7 +22,7 @@ file_content = [
 "",
 "  def project do",
 "    [app: :#{app_name},",
-"     version: \"1.0.0\",",
+"     version: \"0.0.1\",",
 "     deps: deps]",
 "  end",
 "",
