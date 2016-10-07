@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+if File.exists? 'mix.exs'
+  puts "Looks like there is already a mix.exs file in this directory."
+  puts "Wanna overwrite it? (y/n): "
+  exit unless ['y', 'yes', 'yeah', 'yah'].include? gets.chomp.downcase
+end
+
+app_name = File.basename Dir.getwd
+
+project_name = app_name.split('_')
+                            .map(&:capitalize)
+                            .join('')
+
+file_content = [
+"defmodule #{project_name}.Mixfile do",
+"  use Mix.Project",
+"",
+"  def application do",
+"    [applications: []]",
+"  end",
+"",
+"  def project do",
+"    [app: :#{app_name},",
+"     version: \"1.0.0\",",
+"     deps: deps]",
+"  end",
+"",
+"  defp deps do",
+"     [",
+"     ]",
+"  end",
+"end"
+].join("\n")
+
+File.write 'mix.exs', file_content
