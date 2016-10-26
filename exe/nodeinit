@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+project_name = ARGV[0]
+
+Dir.mkdir project_name
+
+Dir.chdir project_name
+
+['src', 'lib'].each {|name| Dir.mkdir (name)}
+
+
+babelrc_lines = [
+  '{',
+  '"presets": ["es2015", "stage-0"]',
+  '}'
+].join "\n"
+
+File.write '.babelrc', babelrc_lines
+
+package_json_lines = [
+  '{',
+  "  \"name\": \"#{project_name}\",",
+  '  "version": "1.0.0",',
+  '  "description": "",',
+  '  "main": "lib/unitCost.js",',
+  '  "scripts": {',
+  '    "test": "echo \"Error: no test specified\" && exit 1"',
+  '  },',
+  '  "repository": {',
+  '    "type": "git",',
+  '    "url": "git+https://github.com/MainShayne233/unitCost.git"',
+  '  },',
+  '  "author": "",',
+  '  "license": "ISC",',
+  '  "bugs": {',
+  '    "url": "https://github.com/MainShayne233/unitCost/issues"',
+  '  },',
+  '  "homepage": "https://github.com/MainShayne233/unitCost#readme",',
+  '  "dependencies": {',
+  '    "babel-preset-es2015": "^6.16.0",',
+  '    "babel-preset-stage-0": "^6.16.0"',
+  '  }',
+  '}'
+].join "\n"
+
+File.write 'package.json', package_json_lines
