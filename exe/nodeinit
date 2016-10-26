@@ -44,3 +44,5 @@ package_json_lines = [
 ].join "\n"
 
 File.write 'package.json', package_json_lines
+
+File.write '.gitignore', 'node_modules/'
