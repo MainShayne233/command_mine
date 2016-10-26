@@ -22,7 +22,7 @@ package_json_lines = [
   "  \"name\": \"#{project_name.downcase}\",",
   '  "version": "1.0.0",',
   '  "description": "",',
-  '  "main": "lib/unitCost.js",',
+  "  \"main\": \"lib/#{project_name.downcase}.js\",",
   '  "scripts": {',
   '    "test": "echo \"Error: no test specified\" && exit 1"',
   '  },',
