@@ -19,7 +19,7 @@ File.write '.babelrc', babelrc_lines
 
 package_json_lines = [
   '{',
-  "  \"name\": \"#{project_name}\",",
+  "  \"name\": \"#{project_name.downcase}\",",
   '  "version": "1.0.0",',
   '  "description": "",',
   '  "main": "lib/unitCost.js",',
