@@ -4,9 +4,13 @@ require 'open-uri'
 
 if ARGV[0] == '-s'
   url = "https://www.google.com/#q=#{ARGV[1..-1].join('+')}"
+elsif ARGV[1]
+  puts "must use -s flag for search"
+elsif ARGV[0].nil?
+  puts "No URL given"
 else
   url = ARGV[0]
 end
 
-url ? `google-chrome #{url}` : (puts "No url given")
   
+`google-chrome #{url}`
