@@ -1,5 +1,12 @@
 #!/usr/bin/env ruby
-url = ARGV[0]
+
+require 'open-uri'
+
+if ARGV[0] == '-s'
+  url = "https://www.google.com/#q=#{ARGV[1..-1].join('+')}"
+else
+  url = ARGV[0]
+end
 
 url ? `google-chrome #{url}` : (puts "No url given")
   
