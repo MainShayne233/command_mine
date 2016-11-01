@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+url = ARGV[0]
+
+url ? `google-chrome #{url}` : puts "No url given"
+  
