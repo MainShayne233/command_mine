@@ -13,4 +13,4 @@ else
 end
 
   
-`google-chrome #{url}`
+`google-chrome #{url} >  /dev/null 2>&1`
