@@ -48,3 +48,5 @@ File.write 'package.json', package_json_lines
 File.write '.gitignore', 'node_modules/'
 
 File.write 'README.md', "# #{project_name}"
+
+`npm install`
