@@ -4,18 +4,16 @@ puts "stopping and killing all docker images"
 
 running_images = `docker ps`.split("\n")[1..-1].map{|i| i.split(" ")[0]}
 
-print running_images.empty?
-
-puts "stopping #{running_images.join(' ')}"
-
-puts "docker stop #{running_images.join(' ')}"
-
-puts `docker stop #{running_images.join(' ')}`
+unless running_images.empty?
+  puts "stopping #{running_images.join(' ')}"
+  puts "docker stop #{running_images.join(' ')}"
+  puts `docker stop #{running_images.join(' ')}`
+end
 
 stopped_images = `docker ps -a`.split("\n")[1..-1].map{|i| i.split(" ")[0]}
 
-puts "killing #{stopped_images.join(' ')}"
-
-puts "docker rm #{running_images.join(' ')}"
-
-puts `docker rm #{running_images.join(' ')}`
+unless stopped_images.empty?
+  puts "killing #{stopped_images.join(' ')}"
+  puts "docker rm #{running_images.join(' ')}"
+  puts `docker rm #{running_images.join(' ')}`
+end
